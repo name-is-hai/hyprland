@@ -1,6 +1,6 @@
 {
   "$schema": "/etc/xdg/swaync/configSchema.json",
-  "positionX": "right",
+  "positionX": "center",
   "positionY": "top",
   "layer": "overlay",
   "control-center-layer": "top",
@@ -20,18 +20,20 @@
   "timeout-low": 3,
   "timeout-critical": 0,
   "fit-to-screen": false,
-  "control-center-width": 380,
-  "control-center-height": 800,
+  "control-center-width": 450,
+  "control-center-height": 720,
   "keyboard-shortcuts": true,
-  "image-visibility": "when available",
+  "image-visibility": "when-available",
   "transition-time": 200,
   "hide-on-clear": false,
   "hide-on-action": true,
   "script-fail-notify": true,
   "widgets": [
+      "dnd",
       "buttons-grid",
       "mpris",
-      "dnd",
+      "volume", 
+      "backlight",
       "title",
       "notifications"
   ],
@@ -39,10 +41,7 @@
       "title": {
           "text": "Notifications",
           "clear-all-button": true,
-          "button-text": "󰎟"
-      },
-      "backlight": {
-          "label": "󰃟"
+          "button-text": "Clear"
       },
       "dnd": {
           "text": "Do Not Disturb"
@@ -52,8 +51,14 @@
           "text": "Notification"
       },
       "mpris": {
-          "image-size": 50,
-          "image-radius": 12
+          "image-size": 96,
+          "image-radius": 8
+      },
+      "volume": {
+          "label": "󰕾"
+      },
+      "backlight": {
+          "label": "󰃟"
       },
       "buttons-grid": {
           "actions": [
@@ -63,7 +68,7 @@
               },
               {
                   "label": "󰌾",
-                  "command": "bash -c $HOME/.config/hypr/scripts/hyprlock.sh"
+                  "command": "bash -c $HOME/.config/hypr/scripts/LockScreen.sh"
               },
               {
                   "label": "󰍃",
@@ -76,7 +81,10 @@
               {
                   "label": "󰝟",
                   "command": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
-
+              },
+              {
+                  "label": "󰂯",
+                  "command": "blueman-manager"
               }
           ]
       }
