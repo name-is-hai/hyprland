@@ -1,23 +1,151 @@
-/* ---- 💫 https://github.com/JaKooLit 💫 ---- */
-/* Ja KooLit - Default 
+@theme "/dev/null"
+@import "colors.rasi"
 
-* All main themes or configs are located in ~/.config/rofi/themes/
-* If you want to edit the config, that is where you should edit NOT here 
+configuration {
+	modi: "window,run,drun";
+	display-drun: "Applications";
+	display-window: "Windows";
+	display-run: "Run";
+	drun-display-format: "{icon} {name}";
+	font: "JetBrainsMono Nerd Font 10";
+	show-icons: true;
+	icon-theme: "Colloid";
+}
 
-* To load a new theme, manually edit the file path below or choose desired theme via rofi theme selector (choose via app menu)
+window {
+    /* properties for window widget */
+    transparency:                "real";
+    location:                    center;
+    anchor:                      center;
+    fullscreen:                  false;
+    width:                       1000px;
+    x-offset:                    0px;
+    y-offset:                    0px;
 
-* Alternative way to Load (preferred) own cooked by Ja 
-* SUPER CTRL R - Choose style & SUPER CTRL SHIFT R 
+    /* properties for all widgets */
+    enabled:                     true;
+    border:			 2px solid;
+    border-color:		 @secondary-container;
+    border-radius:               15px;
+    cursor:                      "default";
+    background-color:            @on-primary-fixed;
+}
 
-* TIPS 
-* If you have edited a config, rename it with a unique name. During update, the contents of 
-* ~/.config/rofi/themes/ will be replaced. */
+mainbox {
+    enabled:                     true;
+    spacing:                     0px;
+    background-color:            transparent;
+    orientation:                 horizontal;
+    children:                    [ "imagebox", "listbox" ];
+}
 
-/* ---- Global Configuration Fonts ---- */
-@import "~/.config/rofi/0-shared-fonts.rasi"
+imagebox {
+    padding:                     20px;
+    background-color:            transparent;
+    background-image:            url("~/.config/hypr/current_wallpaper", height);
+    orientation:                 vertical;
+    children:                    [ "inputbar", "dummy", "mode-switcher" ];
+}
 
-/* note: Main themes in ~/.config/rofi/themes */
-/* You can manually change here or you can use rofi theme selector SUPER SHIFT E */
+listbox {
+    spacing:                     20px;
+    padding:                     20px;
+    background-color:            transparent;
+    orientation:                 vertical;
+    children:                    [ "message", "listview" ];
+}
 
+dummy {
+    background-color:            transparent;
+}
 
-@theme "~/.config/rofi/themes/KooL_style-4.rasi"
+inputbar {
+    enabled:                     true;
+    spacing:                     10px;
+    padding:                     15px;
+    border-radius:               10px;
+    background-color:		 @on-primary;
+    text-color:			 @on-surface;
+    children:                    [ "textbox-prompt-colon", "entry" ];
+}
+textbox-prompt-colon {
+    enabled:                     true;
+    expand:                      false;
+    str:                         "  ";
+    background-color:            inherit;
+    text-color:                  inherit;
+}
+entry {
+    enabled:                     true;
+    background-color:            inherit;
+    text-color:                  inherit;
+    cursor:                      text;
+    placeholder:                 "Search";
+    placeholder-color:           inherit;
+}
+
+mode-switcher{
+    enabled:                     true;
+    spacing:                     20px;
+    background-color:            transparent;
+    text-color:                  @primary-fixed;
+}
+button {
+    padding:                     15px;
+    border-radius:               10px;
+    background-color:            @on-primary;
+    text-color:                  inherit;
+    cursor:                      pointer;
+}
+button selected {
+    background-color:            @primary;
+    text-color:                  @on-secondary;
+}
+
+listview {
+    enabled:                     true;
+    columns:                     1;
+    lines:                       8;
+    cycle:                       true;
+    dynamic:                     true;
+    scrollbar:                   false;
+    layout:                      vertical;
+    reverse:                     false;
+    fixed-height:                true;
+    fixed-columns:               true;
+    
+    spacing:                     10px;
+    background-color:            transparent;
+    text-color:                  @on-surface;
+    cursor:                      "default";
+}
+
+element {
+    enabled:                     true;
+    spacing:                     15px;
+    padding:                     8px;
+    border-radius:               10px;
+    background-color:            transparent;
+    text-color:                  @on-surface;
+    cursor:                      pointer;
+}
+element normal.normal {
+    background-color:            inherit;
+    text-color:                  inherit;
+}
+element normal.urgent {
+    background-color:            @error;
+    text-color:                  @on-surface;
+}
+element normal.active {
+    background-color:            @primary;
+    text-color:                  @on-surface;
+}
+element selected.normal {
+    background-color:            @primary;
+    text-color:                  @on-secondary;
+}
+element selected.urgent {
+    background-color:            @error;
+    text-color:                  @on-secondary;
+}

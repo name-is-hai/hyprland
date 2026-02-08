@@ -1,16 +1,6 @@
 #!/usr/bin/env bash
 # App enablement and editor selection helpers.
 
-enable_asusctl() {
-  local log="$1"
-  if command -v asusctl >/dev/null 2>&1; then
-    local OVERLAY_SA="config/hypr/configs/Startup_Apps.conf"
-    mkdir -p "$(dirname "$OVERLAY_SA")"
-    touch "$OVERLAY_SA"
-    grep -qx 'exec-once = rog-control-center' "$OVERLAY_SA" || echo 'exec-once = rog-control-center' >>"$OVERLAY_SA"
-  fi
-}
-
 enable_blueman() {
   local log="$1"
   if command -v blueman-applet >/dev/null 2>&1; then

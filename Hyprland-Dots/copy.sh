@@ -310,7 +310,6 @@ printf "\n%.0s" {1..1}
 layout=$(prompt_detect_layout)
 prompt_keyboard_layout "$layout" "$LOG"
 
-enable_asusctl "$LOG"
 enable_blueman "$LOG"
 enable_ags "$LOG"
 enable_quickshell "$LOG"
