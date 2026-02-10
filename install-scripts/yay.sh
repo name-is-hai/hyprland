@@ -3,7 +3,7 @@
 # Yay AUR Helper #
 # NOTE: If paru is already installed, yay will not be installed #
 
-pkg="yay-bin"
+pkg="yay"
 
 ## WARNING: DO NOT EDIT BEYOND THIS LINE IF YOU DON'T KNOW WHAT YOU ARE DOING! ##
 # Set the name of the log file to include the current date and time
